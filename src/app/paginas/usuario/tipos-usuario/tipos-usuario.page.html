@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tipos Usuarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-item>
+      <ion-input #type placeholder="Tipo"></ion-input>
+      <ion-icon (click)="register_types(type)" color="success" name="save-outline"></ion-icon>
+    </ion-item>
+  </div>
+
+  <ion-item class="lista" *ngFor="let type of t">
+    <ion-item-sliding>
+      <ion-item>
+        {{type.type_user}}
+      </ion-item>
+      <ion-item-options side="end">
+        <button ion-button expandable style="background-color: rgb(209, 16, 16);">
+          <ion-icon (click)="eliminar(type.id)" name="trash-outline"></ion-icon>
+        </button>
+        <button ion-button expandable style="background-color: rgb(60, 179, 113);">
+          <ion-icon (click)="presentAlertPrompt(type.id, type.type_user)" name="create-outline"></ion-icon>
+
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-item>
+
+</ion-content>
